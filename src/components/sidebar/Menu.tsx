@@ -173,7 +173,7 @@ const Menu: FC<MenuProps> = ({}) => {
                         <IconContext.Provider value={{ color: '#CCCCCC', className: 'contactIcon', size: '25' }}>
                         <GiRaiseZombie />
                         </IconContext.Provider>
-                        <span className='large-text'>Zombie Fightr</span>
+                        <span className='large-text'>Zombie Fighter</span>
                     </List>
                 </div>
         </div>

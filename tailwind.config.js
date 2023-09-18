@@ -8,7 +8,7 @@ export const theme = {
     extend: {
         backgroundColor: {
             body: 'var(--bg-primary)',
-            cardPrimary: 'var(--card-primary)',
+            cardPrimary: 'var(--card-secondry)',
             btnClose: '#FF605C',
             btnMax: '#FFBD44',
             btnMin: '#00CA4E'
