@@ -25,7 +25,8 @@ import {BsDiscord} from "react-icons/bs";
 import {FaRadiation} from "react-icons/fa6";
 import {GiRaiseZombie} from "react-icons/gi";
 import {MdPersonalInjury} from "react-icons/md";
-
+import { IconContext } from "react-icons"
+import "../../app/globals.css"
 interface MenuProps {}
 
 const Menu: FC<MenuProps> = ({}) => {
@@ -92,7 +93,8 @@ const Menu: FC<MenuProps> = ({}) => {
                 target="_blank"
                 link="https://github.com/anshvert/PostHive"
                 effect="slideUp">
-                <SiHive /> PostHive
+                <IconContext.Provider value={{color: "#fcfcfc", className: "contactIcon",size: "25" }}><SiHive /></IconContext.Provider>
+                 PostHive
             </List>
             <List
                 target="_blank"

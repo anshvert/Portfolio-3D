@@ -65,6 +65,10 @@ body {
     transform-origin: center;
 }
 
+.contactIcon:hover {
+    fill: #495200;
+}
+
 /* Scroll bar */
 ::-webkit-scrollbar {
     width: 10px; /* Width of the scrollbar */
