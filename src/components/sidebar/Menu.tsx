@@ -34,15 +34,17 @@ const Menu: FC<MenuProps> = ({}) => {
     return (
         <div
             className="flex relative flex-col h-full p-5 bg-cardPrimary text-primary rounded-lg w-full overflow-y-auto pb-20 md:pb-5"
-            onClick={() => showMenuVisibility(false)}
-        >
+            onClick={() => showMenuVisibility(false)}>
             <div className="block lg:hidden p-5 z-10 text-primary absolute right-0 top-0 cursor-pointer text-2xl">
                 <X className={`text-primary`} />
             </div>
             {/* List 1 */}
-            <List link="/" effect="slideUp">
-                <Home /> Home
-            </List>
+            <div className='list-hover'>
+                <List link="/" effect="slideUp">
+                    <Home />
+                    <span className='large-text'>Home</span>
+                </List>
+            </div>
             {/*<List link="/" effect="slideUp">*/}
             {/*    <Flame /> Trending*/}
             {/*</List>*/}
@@ -55,88 +57,125 @@ const Menu: FC<MenuProps> = ({}) => {
 
             {/* List 2 */}
             <div className="mt-5">Socials</div>
-            <List
-                target="_blank"
-                link="https://www.instagram.com/ansh_vert/"
-                effect="slideUp">
-                <Instagram color="#b5179e" /> Instagram
-            </List>
-            <List
-                target="_blank"
-                link="https://github.com/anshvert"
-                effect="slideUp">
-                <Github color="#2a9d8f" /> Github
-            </List>
-            {/*<List*/}
-            {/*    target="_blank"*/}
-            {/*    link="https://www.youtube.com/channel/UCWYz4W6m1toUP7x0M1od3fA"*/}
-            {/*    effect="slideUp">*/}
-            {/*    <Youtube color="#e63946" /> Youtube*/}
-            {/*</List>*/}
-            {/*<List*/}
-            {/*    target="_blank"*/}
-            {/*    link="https://stackoverflow.com/users/20331641/neeraj-walia"*/}
-            {/*    effect="slideUp"*/}
-            {/*>*/}
-            {/*    <Layers color="#f77f00" /> Stack overflow*/}
-            {/*</List>*/}
-            <List
-                target="_blank"
-                link="https://www.linkedin.com/in/ansh00000000/"
-                effect="slideUp">
-                <Linkedin color="#0277b5" /> Linkedin
-            </List>
-
+                <div className='list-hover'>
+                    <List
+                        target="_blank"
+                        link="https://www.instagram.com/ansh_vert/"
+                        effect="slideUp">
+                        <Instagram color="#b5179e" />
+                        <span className='large-text'>Instagram</span>
+                    </List>
+                </div>
+                <div className='list-hover'>
+                    <List
+                        target="_blank"
+                        link="https://github.com/anshvert"
+                        effect="slideUp">
+                        <Github color="#2a9d8f" />
+                        <span className='large-text'>Github</span>
+                    </List>
+                </div>
+                {/*<List*/}
+                {/*    target="_blank"*/}
+                {/*    link="https://www.youtube.com/channel/UCWYz4W6m1toUP7x0M1od3fA"*/}
+                {/*    effect="slideUp">*/}
+                {/*    <Youtube color="#e63946" /> Youtube*/}
+                {/*</List>*/}
+                {/*<List*/}
+                {/*    target="_blank"*/}
+                {/*    link="https://stackoverflow.com/users/20331641/neeraj-walia"*/}
+                {/*    effect="slideUp"*/}
+                {/*>*/}
+                {/*    <Layers color="#f77f00" /> Stack overflow*/}
+                {/*</List>*/}
+                <div className='list-hover'>
+                    <List
+                        target="_blank"
+                        link="https://www.linkedin.com/in/ansh00000000/"
+                        effect="slideUp">
+                        <Linkedin color="#0277b5" />
+                        <span className="large-text">LinkedIn</span>
+                    </List>
+                </div>
             {/* List 3 */}
             <div className="mt-5">Projects</div>
-            <List
-                target="_blank"
-                link="https://github.com/anshvert/PostHive"
-                effect="slideUp">
-                <IconContext.Provider value={{color: "#fcfcfc", className: "contactIcon",size: "25" }}><SiHive /></IconContext.Provider>
-                 PostHive
-            </List>
-            <List
-                target="_blank"
-                link="https://github.com/anshvert/CodeNub"
-                effect="slideUp">
-                <RiCodeSSlashLine /> CodeNub
-            </List>
-            <List
-                target="_blank"
-                link="https://github.com/anshvert/Portfolio"
-                effect="slideUp"
-            >
-                <MdPersonalInjury /> Personal Portfolio
-            </List>
-            <List
-                target="_blank"
-                link="https://github.com/anshvert/Discode"
-                effect="slideUp"
-            >
-                <BsDiscord /> Discode
-            </List>
-            <List
-                target="_blank"
-                link="https://github.com/anshvert/App-Radiant"
-                effect="slideUp"
-            >
-                <FaRadiation /> App Radiant
-            </List>
-            <List
-                target="_blank"
-                link="https://github.com/anshvert/Mender"
-                effect="slideUp"
-            >
-                <RiMovie2Fill /> Mender
-            </List>
-            <List
-                target="_blank"
-                link="https://github.com/anshvert/ZombieFight"
-                effect="slideUp"
-            >
-                <GiRaiseZombie /> Zombie Fight
-            </List>
+                <div className='list-hover'>
+                    <List
+                        target="_blank"
+                        link="https://github.com/anshvert/PostHive"
+                        effect="slideUp">
+                        <IconContext.Provider value={{ color: '#CCCCCC', className: 'contactIcon', size: '25' }}>
+                            <SiHive />
+                        </IconContext.Provider>
+                        <span className="large-text">PostHive</span>
+                    </List>
+                </div>
+                <div className='list-hover'>
+                    <List
+                        target="_blank" 
+                        link="https://github.com/anshvert/CodeNub"
+                        effect="slideUp">
+                        <IconContext.Provider value={{ color: '#CCCCCC', className: 'contactIcon', size: '25' }}>
+                        <RiCodeSSlashLine />
+                        </IconContext.Provider>
+                        <span className="large-text">CodeNub</span>
+                    </List>
+                </div>
+                <div className='list-hover'>
+                    <List
+                        target="_blank"
+                        link="https://github.com/anshvert/Portfolio"
+                        effect="slideUp">
+                        <IconContext.Provider value={{ color: '#CCCCCC', className: 'contactIcon', size: '25' }}>
+                        <MdPersonalInjury />
+                        </IconContext.Provider>
+                        <span className='large-text'>Personal Portfolio</span>
+                    </List>
+                </div>
+                <div className='list-hover'>
+                    <List
+                        target="_blank"
+                        link="https://github.com/anshvert/Discode"
+                        effect="slideUp">
+                        <IconContext.Provider value={{ color: '#CCCCCC', className: 'contactIcon', size: '25' }}>
+                        <BsDiscord />
+                        </IconContext.Provider>
+                        <span className='large-text'>Discode</span>
+                    </List>
+                </div>
+                <div className='list-hover'>
+                    <List
+                        target="_blank"
+                        link="https://github.com/anshvert/App-Radiant"
+                        effect="slideUp">
+                        <IconContext.Provider value={{ color: '#CCCCCC', className: 'contactIcon', size: '25' }}>
+                        <FaRadiation />
+                        </IconContext.Provider>
+                        <span className='large-text'>App Radiant</span>
+                    </List>
+                </div>
+                <div className='list-hover'>
+                    <List
+                        target="_blank"
+                        link="https://github.com/anshvert/Mender"
+                        effect="slideUp">
+                        <IconContext.Provider value={{ color: '#CCCCCC', className: 'contactIcon', size: '25' }}>
+                        <RiMovie2Fill />
+                        </IconContext.Provider>
+                        <span className='large-text'>Mender</span>
+                    </List>
+                </div>
+                <div className='list-hover'>
+                    <List
+                        target="_blank"
+                        link="https://github.com/anshvert/ZombieFight"
+                        effect="slideUp">
+                        <IconContext.Provider value={{ color: '#CCCCCC', className: 'contactIcon', size: '25' }}>
+                        <GiRaiseZombie />
+                        </IconContext.Provider>
+                        <span className='large-text'>Zombie Fightr</span>
+                    </List>
+                </div>
         </div>
     );
 };

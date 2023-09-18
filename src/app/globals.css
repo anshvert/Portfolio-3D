@@ -66,7 +66,18 @@ body {
 }
 
 .contactIcon:hover {
-    fill: #495200;
+    fill: #ffffff;
+}
+
+.list-hover:hover {
+    transition: font-size 0.3s ease, color 0.3s ease; 
+    transition-delay: 0.1s;
+    color: white; 
+}
+
+.large-text {
+    font-size: 17px;
+    transition: font-size 0.3s ease;
 }
 
 /* Scroll bar */
