@@ -40,7 +40,7 @@ const CardSection: FC<CardSectionProps> = ({ id, title, version, data }) => {
                 tabsBox.removeEventListener("mousemove", handleDragging);
             };
         }
-    }, []);
+    }, [id]);
     return (
         <>
             <div className="text-xl font-bold text-highlight">{title}</div> 
