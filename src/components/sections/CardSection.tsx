@@ -1,31 +1,50 @@
-import { FC } from 'react';
+"use client"
+import { FC, useEffect } from 'react';
 import Card from '../ui/Card';
-import { ISectionCardData } from '../utils/Data';
+import { ISectionCardData } from '../utils/Data';;
 
 interface CardSectionProps {
     title: string;
     version?: string;
     data: ISectionCardData[];
+    id: number
 }
 
-const CardSection: FC<CardSectionProps> = ({ title, version, data }) => {
+const CardSection: FC<CardSectionProps> = ({ id, title, version, data }) => {
+    useEffect(() => {
+        const tabsBox = document.querySelectorAll(".tabs-box")[id]
+        console.log(tabsBox)
+        if (tabsBox) {
+            const handleDragging = (e: any) => {
+                tabsBox.scrollLeft -= e.movementX;
+            };
+            tabsBox.addEventListener("mousemove", handleDragging);
+            return () => {
+                tabsBox.removeEventListener("mousemove", handleDragging);
+            };
+        }
+    }, []);
     return (
-        <section className="grid gap-5 p-5 md:p-0">
-            <div className="text-xl font-bold text-highlight">{title}</div>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl::grid-cols-5 gap-5">
-                {data.map((card) => (
-                    <Card
-                        href={card.href}
-                        key={card.id}
-                        title={card.title}
-                        src={card.src}
-                        exp={card.exp}
-                        snippetCount={card.snippetCount}
-                        progress={card.progress}
-                    />
-                ))}
-            </div>
-        </section>
+        <>
+            <div className="text-xl font-bold text-highlight">{title}</div> 
+                <div className="wrapper">
+                    <div className="icon"><i id="right" className="fa-solid fa-angle-right"></i></div>
+                        <div className="tabs-box" key={title}>
+                            {data.concat(data.concat(data)).map((card: ISectionCardData) => (
+                                <div className='tab'>
+                                    <Card
+                                        href={card.href}
+                                        key={card.id}
+                                        title={card.title}
+                                        src={card.src}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    <div className="icon"><i id="right" className="fa-solid fa-angle-right"></i></div>
+                </div>
+        </>
+
     );
 };
 
