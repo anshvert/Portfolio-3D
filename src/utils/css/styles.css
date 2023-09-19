@@ -9,7 +9,7 @@
   background: #fff;
   border-radius: 13px;
   color: #000;
-  margin-left: 5px;
+  margin-left: 0px;
   background-color: #14131a;
   margin-right: 5px;
   margin-bottom: 10px;
@@ -21,18 +21,17 @@
   width: 120px;
   display: flex;
   align-items: center;
-  color: #000;
+  color: #19a124;
 }
 .icon:first-child {
   left: 0;
-  background: linear-gradient(90deg, #5551513d 100%, transparent);
+  background: linear-gradient(90deg, #1814143d 10%, transparent);
   display: none;
 }
 .icon:last-child {
   right: 0;
   justify-content: flex-end;
-  background: linear-gradient(-90deg, #5551513d 70%, transparent);
-  display: none;
+  background: linear-gradient(-90deg, #1814143d 10%, transparent);
 }
 .icon i {
   width: 55px;
@@ -42,6 +41,7 @@
   text-align: center;
   line-height: 55px;
   border-radius: 50%;
+  background-color: #14131a;
 }
 .icon i:hover {
   background: #efedfb;
@@ -57,7 +57,7 @@
     gap: 12px;
     list-style: none;
     overflow-x: hidden;
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     white-space: nowrap; /* Prevent line breaks */
     width: 100%; /* Ensure the container expands to its content */
 }
