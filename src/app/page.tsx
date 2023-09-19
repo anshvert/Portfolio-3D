@@ -14,36 +14,37 @@ import {
     web3Cards,
 } from '@/components/utils/Data';
 import "../utils/css/styles.css"
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface skillSection {
+    id: number
     title: string
     data: ISectionCardData[]
 }
 
 export default function Home() {
     const sections: skillSection[] = [
-        { title: "Frontend", data: frontendCard },
-        { title: "Backend", data: backendCard },
-        { title: "Database", data: databaseCard },
-        { title: "DevOps", data: devopsCards },
-        { title: "Web3", data: web3Cards },
+        { id: 0, title: "Frontend", data: frontendCard },
+        { id: 1, title: "Backend", data: backendCard },
+        { id: 2, title: "Database", data: databaseCard },
+        { id: 3, title: "DevOps", data: devopsCards },
+        { id: 4, title: "Web3", data: web3Cards },
     ];
     return (
         <>
-            <div>
-                <Cover />
-                <div className="flex flex-col gap-10 lg:px-10">
-                    {/* <Hero /> */}
-                    <ProjectCardSection title="Projects" data={projectCard} />
-                    {sections.map((section: skillSection, index: number) => (
+            <Cover />
+            <div className="flex flex-col gap-10 lg:px-10">
+                {/* <Hero /> */}
+                <ProjectCardSection title="Projects" data={projectCard} />
+                {sections.map((section: skillSection, index: number) => (
+                    <React.Fragment key={index}>
                         <CardSection
-                            id={index}
+                            id={section.id}
                             title={section.title}
                             data={section.data}
                         />
-                    ))}
-                </div>
+                    </React.Fragment>
+                ))}
             </div>
         </>
     );

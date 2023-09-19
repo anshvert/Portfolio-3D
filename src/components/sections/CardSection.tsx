@@ -46,8 +46,8 @@ const CardSection: FC<CardSectionProps> = ({ id, title, version, data }) => {
             <div className="text-xl font-bold text-highlight">{title}</div> 
                 <div className="wrapper">
                         <div className="tabs-box" key={title}>
-                            {data.concat(data.concat(data)).map((card: ISectionCardData) => (
-                                <div className='tab'>
+                            {data.map((card: ISectionCardData, idx: number) => (
+                                <div className='tab' key={idx}>
                                     <div className="icon"><i id="left">{"<<"}</i></div>
                                     <Card
                                         href={card.href}

@@ -24,6 +24,7 @@ const Card: FC<CardProps> = ({
                         alt={title}
                         className="object-cover"
                         fill
+                        sizes='100'
                     />
                     {/* <div className="progress-bar">
                         <div
