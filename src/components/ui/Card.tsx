@@ -8,12 +8,14 @@ interface CardProps {
     title: string;
     src: string;
     href?: string;
+    progress: number
 }
 
 const Card: FC<CardProps> = ({
     title,
     src,
-    href
+    href,
+    progress
 }) => {
     return (
         <div className="flex flex-col gap-3">
@@ -26,14 +28,14 @@ const Card: FC<CardProps> = ({
                         fill
                         sizes='100'
                     />
-                    {/* <div className="progress-bar">
+                    <div className="progress-bar">
                         <div
-                            className="h-full bg-btnHighlight"
+                            className="h-full bg-btnMin"
                             style={{
                                 width: `${progress}%`,
                             }}
                         />
-                    </div> */}
+                    </div>
                 </div>
             </Link>
             <div className="grid gap-2 px-2">

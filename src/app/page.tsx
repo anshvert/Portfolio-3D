@@ -1,7 +1,6 @@
 "use client"
 import Cover from '@/components/Cover';
 import CardSection from '@/components/sections/CardSection';
-import Hero from '@/components/sections/Hero';
 import ProjectCardSection from '@/components/sections/ProjectCardSection';
 import {
     ISectionCardData,
@@ -11,6 +10,7 @@ import {
     frontendCard,
     otherCards,
     projectCard,
+    threeDCard,
     web3Cards,
 } from '@/components/utils/Data';
 import "../utils/css/styles.css"
@@ -29,12 +29,13 @@ export default function Home() {
         { id: 2, title: "Database", data: databaseCard },
         { id: 3, title: "DevOps", data: devopsCards },
         { id: 4, title: "Web3", data: web3Cards },
+        { id: 5, title: "3D", data: threeDCard },
+        { id: 6, title: "Others", data: otherCards }
     ];
     return (
         <>
             <Cover />
             <div className="flex flex-col gap-10 lg:px-10">
-                {/* <Hero /> */}
                 <ProjectCardSection title="Projects" data={projectCard} />
                 {sections.map((section: skillSection, index: number) => (
                     <React.Fragment key={index}>

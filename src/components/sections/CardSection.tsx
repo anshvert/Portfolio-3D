@@ -54,6 +54,7 @@ const CardSection: FC<CardSectionProps> = ({ id, title, version, data }) => {
                                         key={card.id}
                                         title={card.title}
                                         src={card.src}
+                                        progress={card.progress}
                                     />
                                     <div className="icon"><i id="right">{">>"}</i></div>
                                 </div>
