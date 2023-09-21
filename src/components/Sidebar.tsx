@@ -12,10 +12,7 @@ const SideBar: FC<SideBarProps> = ({}) => {
         <aside
             className={`${
                 showMenu ? 'flex' : 'hidden'
-            } lg:flex h-screen fixed w-screen sm:w-[300px] z-30`}
-        >
-            {/* Sidebar Container */}
-
+            } lg:flex h-screen fixed w-screen sm:w-[300px] z-3 bg-black`}>
             <div className="toggle flex flex-col lg:m-5 w-full">
                 <Logo />
                 <Menu />

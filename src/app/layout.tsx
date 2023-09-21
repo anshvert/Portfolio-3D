@@ -1,16 +1,29 @@
+"use client"
 import './globals.css';
 import type { Metadata } from 'next';
 import SideBar from '@/components/Sidebar';
 import Navbar from '@/components/Navbar';
-import ContactForm from '@/components/ContactForm';
-import { ContactFormProvider, MenuProvider } from '@/components/Provider';
-import { Toaster } from 'react-hot-toast';
 import React from "react";
+import Background from '@/components/background/background';
+import {Canvas} from "@react-three/fiber"
+import Boxx from '@/components/background/box';
+import styled from 'styled-components';
 
 export const metadata: Metadata = {
     title: 'Ansh',
     description: 'Portfolio',
 };
+
+const Wrapper = styled.div`
+  position: relative;
+  background: #1f1144;
+  canvas {
+    height: 500px;
+    width: 500px;
+    background: black;
+  }
+`;
+
 
 export default function RootLayout({
     children,
@@ -20,19 +33,20 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                <MenuProvider>
-                    <ContactFormProvider>
-                        <ContactForm />
-                        <Toaster />
-                        <div className="flex">
-                            <SideBar />
-                            <main className="flex-1 pl-0 lg:pl-[300px]">
-                                <Navbar />
-                                {children}
-                            </main>
-                        </div>
-                    </ContactFormProvider>
-                </MenuProvider>
+                <Wrapper style={{"textAlign": "center"}}>
+                    <Background/>
+                    {/* <h1> Above the foking Canvas !! </h1> */}
+                    <Canvas className="canvas">
+                        <Boxx/>
+                    </Canvas>
+                    {/* <div style={{ margin: "35px", width: "95%"}}>
+                        <SideBar />
+                        <main className="pl-0 lg:pl-[300px] z-1">
+                            <Navbar />
+                            {children}
+                        </main>
+                    </div> */}
+                </Wrapper>
             </body>
         </html>
     );

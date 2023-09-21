@@ -8,13 +8,13 @@ html {
 
 :root {
     /* Background */
-    --bg-primary: #14131a;
-    --card-primary: #1c1b23;
+    --bg-primary: #000000;
+    --card-primary: #000000;
 
     /* Button */
     --btn-highlight: #2bd576;
     --btn-primary: #3a3942;
-    --btn-secondary: #1c1b23;
+    --btn-secondary: #000000;
 
     /* Text */
     --text-primary: #8b8a91;
@@ -31,7 +31,7 @@ html {
 body {
     color: var(--foreground-rgb);
     background: var(--bg-primary);
-}
+}  
 
 .progress-bar {
     width: 100%;

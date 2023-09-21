@@ -11,7 +11,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
     const { setFormVisibility } = useContact();
     const { showMenu, showMenuVisibility } = useMenu();
     return (
-        <nav className="flex sticky shadow-md top-0 z-20 bg-body p-5 text-info justify-between">
+        <nav className="flex shadow-md top-0 z-3 bg-body p-5 text-info justify-between bg-black relative mr-5">
             {/* <SearchBar /> */}
             <div>{/* Place holder for search bar */}</div>
             <div className="flex items-center gap-5">

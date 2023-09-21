@@ -33,9 +33,9 @@ export default function Home() {
         { id: 6, title: "Others", data: otherCards }
     ];
     return (
-        <>
+        <div style={{position: "relative", marginRight: "30px"}}>
             <Cover />
-            <div className="flex flex-col gap-10 lg:px-10">
+            <div className="flex flex-col gap-10 lg:px-10 bg-black">
                 <ProjectCardSection title="Projects" data={projectCard} />
                 {sections.map((section: skillSection, index: number) => (
                     <React.Fragment key={index}>
@@ -47,6 +47,6 @@ export default function Home() {
                     </React.Fragment>
                 ))}
             </div>
-        </>
+        </div>
     );
 }
