@@ -7,6 +7,7 @@ import React from "react";
 import Background from '@/components/background/background';
 import {Canvas} from "@react-three/fiber"
 import Boxx from '@/components/background/box';
+import BackgroundText from '@/components/background/backgroundText';
 import styled from 'styled-components';
 
 export const metadata: Metadata = {
@@ -20,7 +21,6 @@ const Wrapper = styled.div`
   canvas {
     height: 500px;
     width: 500px;
-    background: black;
   }
 `;
 
@@ -35,7 +35,7 @@ export default function RootLayout({
             <body>
                 <Wrapper style={{"textAlign": "center"}}>
                     <Background/>
-                    {/* <h1> Above the foking Canvas !! </h1> */}
+                    <BackgroundText/>
                     <Canvas className="canvas">
                         <Boxx/>
                     </Canvas>

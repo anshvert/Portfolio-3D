@@ -15,6 +15,7 @@ import {
 } from '@/components/utils/Data';
 import "../utils/css/styles.css"
 import React, { useEffect, useState } from 'react';
+import SideBar from '@/components/Sidebar';
 
 interface skillSection {
     id: number
@@ -33,20 +34,22 @@ export default function Home() {
         { id: 6, title: "Others", data: otherCards }
     ];
     return (
-        <div style={{position: "relative", marginRight: "30px"}}>
-            <Cover />
-            <div className="flex flex-col gap-10 lg:px-10 bg-black">
-                <ProjectCardSection title="Projects" data={projectCard} />
-                {sections.map((section: skillSection, index: number) => (
-                    <React.Fragment key={index}>
-                        <CardSection
-                            id={section.id}
-                            title={section.title}
-                            data={section.data}
-                        />
-                    </React.Fragment>
-                ))}
+        <>  
+            <div style={{position: "relative", marginRight: "30px"}}>
+                <Cover />
+                <div className="flex flex-col gap-10 lg:px-10 bg-black">
+                    <ProjectCardSection title="Projects" data={projectCard} />
+                    {sections.map((section: skillSection, index: number) => (
+                        <React.Fragment key={index}>
+                            <CardSection
+                                id={section.id}
+                                title={section.title}
+                                data={section.data}
+                            />
+                        </React.Fragment>
+                    ))}
+                </div>
             </div>
-        </div>
+        </>
     );
 }
