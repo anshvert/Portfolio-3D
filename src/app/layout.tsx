@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   position: relative;
   background: #1f1144;
   canvas {
-    height: 700px;
+    height: 1000px;
     width: 500px;
   }
 `;
@@ -32,9 +32,8 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                <Wrapper style={{"textAlign": "center"}}>
+                <Wrapper>
                     <Background/>
-                    <BackgroundText/>
                     <CanvasElement/>
                     {/* <div style={{ margin: "35px", width: "95%"}}>
                         <SideBar />

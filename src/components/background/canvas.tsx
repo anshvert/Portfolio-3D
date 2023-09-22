@@ -1,22 +1,31 @@
-import React , {Suspense} from "react"
-import {Canvas} from "@react-three/fiber"
+import React , {Suspense, useRef} from "react"
+import {Canvas, useThree} from "@react-three/fiber"
 import Boxx from '@/components/background/elements/box';
 import AnimatedSphere from "@/components/background/elements/animatedSphere";
-import { OrbitControls } from "@react-three/drei";
+import { Environment, OrbitControls } from "@react-three/drei";
+import {Model} from "@/components/background/models/Scene"
+
+const hdriElement = () => {
+    const groupRef = useRef();
+    const { gl, scene } = useThree();
+    console.log(gl,scene)
+}
 
 interface CanvasElementProps {}
 
 const CanvasElement: React.FC<CanvasElementProps> = ({}) => {
+
     return (
         <Canvas className="canvas">
             <OrbitControls enableZoom={false}/>
-            <ambientLight intensity={1} />
-            <directionalLight position={[-2,5,2]} intensity={1}/>
+            <ambientLight intensity={0} />
+            <directionalLight position={[-2, 5, 2]} intensity={1} />
             <Suspense fallback={null}>
-                <Boxx/>
-                <AnimatedSphere/>
+                <Environment files="/sky.hdr" background={true} />
+                <Boxx />
+                <Model />
             </Suspense>
-        </Canvas> 
+        </Canvas>
     )
 
 }
