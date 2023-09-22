@@ -13,8 +13,8 @@ export default function Background() {
   return (
     <Wrapper>
       <Wave1 />
-      {/* <Wave2 />
-      <Wave3 />
+      <Wave2 />
+      {/* <Wave3 />
       <Wave4 />
       <Wave5 />
       <Wave6 /> */}
