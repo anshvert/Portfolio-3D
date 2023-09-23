@@ -13,7 +13,7 @@ import { useGLTF } from '@react-three/drei'
 export function Model(props) {
   const { nodes, materials } = useGLTF('/scene.gltf')
   return (
-    <group {...props} dispose={null} position={[0,-15,-100]} scale={0.5}>
+    <group {...props} dispose={null} position={[0,-15,-100]} scale={0.3}>
       <group rotation={[-Math.PI / 2, 0, 330]}>
         <mesh geometry={nodes.Object_2.geometry} material={materials['11112_sheet_Material__25']} />
         <mesh geometry={nodes.Object_3.geometry} material={materials['11112_sheet_Material__25']} />

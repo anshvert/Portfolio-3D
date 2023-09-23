@@ -7,12 +7,9 @@ import { useMenu } from './Provider';
 interface SideBarProps {}
 
 const SideBar: FC<SideBarProps> = ({}) => {
-    const { showMenu } = useMenu();
     return (
         <aside
-            className={`${
-                showMenu ? 'flex' : 'hidden'
-            } lg:flex h-screen fixed w-screen sm:w-[300px] z-3 bg-black`}>
+            className={`lg:flex h-screen fixed w-screen sm:w-[300px] bg-black relative z-1`} style={{ borderRadius: '50px', height: "850px" }}>
             <div className="toggle flex flex-col lg:m-5 w-full">
                 <Logo />
                 <Menu />

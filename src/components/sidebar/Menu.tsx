@@ -33,9 +33,9 @@ const Menu: FC<MenuProps> = ({}) => {
     const { showMenuVisibility } = useMenu();
     return (
         <div
-            className="flex relative flex-col h-full p-5 bg-cardPrimary text-primary rounded-lg w-full overflow-y-auto pb-20 md:pb-5"
+            className="flex relative flex-col h-full p-2 bg-cardPrimary text-primary rounded-lg w-full overflow-y-auto pb-20 md:pb-2"
             onClick={() => showMenuVisibility(false)}>
-            <div className="block lg:hidden p-5 z-10 text-primary absolute right-0 top-0 cursor-pointer text-2xl">
+            <div className="block lg:hidden p-2 z-10 text-primary absolute right-0 top-0 cursor-pointer text-2xl">
                 <X className={`text-primary`} />
             </div>
             {/* List 1 */}

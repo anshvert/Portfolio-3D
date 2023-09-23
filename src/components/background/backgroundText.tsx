@@ -5,7 +5,7 @@ const BackgroundText = () =>{
     <Wrapper>
       <Title>Ansh Tyagi</Title>
       <Description>
-        Trying to Fix this Mess
+        Full Stack Web Developer
       </Description>
     </Wrapper>
   );
@@ -14,13 +14,12 @@ const BackgroundText = () =>{
 export default BackgroundText
 
 const Wrapper = styled.div`
-  position: relative;
-  max-width: 380px;
-  display: grid;
-  gap: 20px;
-  text-align: center;
-  margin: 0 auto;
-  padding: 140px 20px 100px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1; /* Adjust the z-index to ensure text is above the canvas */
+  color: white;
+  font-size: 24px;
 `;
 
 const Title = styled.h1`
