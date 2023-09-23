@@ -11,10 +11,10 @@ import CanvasElement from '@/components/background/canvas';
 import LoadingSpinner from '@/components/loading/LoadingScreen';
 import { Loader } from '@react-three/drei';
 
-export const metadata: Metadata = {
-    title: 'Ansh',
-    description: 'Portfolio',
-};
+// export const metadata: Metadata = {
+//     title: 'Ansh',
+//     description: 'Portfolio',
+// };
 
 const Wrapper = styled.div`
   position: relative;
