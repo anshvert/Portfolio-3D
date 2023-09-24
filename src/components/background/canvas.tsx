@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Environment, Loader, PerspectiveCamera, PointerLockControlsProps } from "@react-three/drei";
-import { Model } from "@/components/background/models/Scene";
+import { BeachHouse } from "@/components/background/models/beachHouse";
+import { House } from "@/components/background/models/house"
 import { OrbitControls, PointerLockControls } from "@react-three/drei";
 
 interface CanvasElementProps {}
@@ -32,6 +33,10 @@ const CanvasElement: React.FC<CanvasElementProps> = ({}) => {
         }
     };
 
+    // useFrame(() => {
+    //   console.log("OKK")
+    // })
+
   return (
     <>
       <Canvas
@@ -42,16 +47,22 @@ const CanvasElement: React.FC<CanvasElementProps> = ({}) => {
       >
         <PerspectiveCamera
           makeDefault
-          position={[0, 5, 15]}
-          fov={75}
+          position={[0, 5, 10]}
+          fov={50}
           near={0.1}
           far={1000}
         />
-        <PointerLockControls ref={controls}/>
-        <ambientLight intensity={0} />
-        <directionalLight position={[-2, 5, 2]} intensity={1} />
+        {/* <PointerLockControls ref={controls}/> */}
+        <OrbitControls
+          enableZoom={false}
+          target={[0,-15,-100]}
+          autoRotate={false}
+          enableDamping/>
+        {/* <ambientLight intensity={0} /> */}
+        {/* <directionalLight position={[-2, 5, 2]} intensity={1} /> */}
         <Environment files="/sky.hdr" background={true} blur={0} />
-        <Model />
+        {/* <BeachHouse /> */}
+        <House/>
       </Canvas>
       <Loader />
     </>

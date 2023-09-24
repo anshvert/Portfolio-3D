@@ -1,6 +1,5 @@
 "use client"
 import './globals.css';
-import type { Metadata } from 'next';
 import SideBar from '@/components/Sidebar';
 import Navbar from '@/components/Navbar';
 import React, { Suspense, useEffect, useState } from "react";
@@ -10,6 +9,7 @@ import styled from 'styled-components';
 import CanvasElement from '@/components/background/canvas';
 import LoadingSpinner from '@/components/loading/LoadingScreen';
 import { Loader } from '@react-three/drei';
+import Portfolio from '@/components/portfolio/Portfolio';
 
 // export const metadata: Metadata = {
 //     title: 'Ansh',
@@ -30,31 +30,21 @@ export default function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
-    const [loading,setLoading] = useState(false)
-    useEffect(() => {
-        setTimeout(() => {
-            setLoading(false)
-        },5500)
-    },[])
+    const [loading,setLoading] = useState<boolean>(false)
+    const [skills,setSkills] = useState<boolean>(false)
+   
     return (
         <html lang="en">
             <body>
                 <Wrapper>
                     <Suspense fallback={null}> 
-                        {!loading ? (
                         <>
-                            <BackgroundText/>
+                            <BackgroundText setSkills={setSkills}/>
                             <CanvasElement/>
-                            {/* <div style= {{display: "Flex", position: "relative", background: "linear-gradient(to bottom, #787578, #000000)"}}>
-                                <div style={{ marginTop: "50px", marginLeft: "35px",display: "flex", width: "90%", marginRight: "auto"}}>
-                                    <SideBar />
-                                    <main style={{zIndex: 1, overflowX: "hidden", marginLeft: "40px"}}>
-                                        {children}
-                                    </main>
-                                </div>
-                            </div> */}
+                            {skills && 
+                                <Portfolio children = {children}/>
+                            }
                         </>
-                        ) : (<LoadingSpinner/>)}
                     </Suspense>
                 </Wrapper>
             </body>

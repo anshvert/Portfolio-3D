@@ -37,7 +37,7 @@ export default function Home() {
         <>  
             <div style={{position: "relative", zIndex: 1}}>
                 <Cover />
-                <div className="flex flex-col gap-10 lg:px-10 bg-black" style={{borderRadius: '50px'}}>
+                <div className="flex flex-col gap-10 lg:px-10 bg-black" style={{borderRadius: '50px', marginTop: "10px"}}>
                     <ProjectCardSection title="Projects" data={projectCard} />
                     {sections.map((section: skillSection, index: number) => (
                         <React.Fragment key={index}>
