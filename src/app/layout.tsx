@@ -30,30 +30,31 @@ export default function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
-    const [loading,setLoading] = useState(true)
+    const [loading,setLoading] = useState(false)
     useEffect(() => {
         setTimeout(() => {
             setLoading(false)
-        },3500)
+        },5500)
     },[])
     return (
         <html lang="en">
             <body>
                 <Wrapper>
-                    <Suspense fallback={<LoadingSpinner/>}>
-                        {!loading ? (<>
+                    <Suspense fallback={null}> 
+                        {!loading ? (
+                        <>
                             <BackgroundText/>
-                        <CanvasElement/>
-                        <div style= {{display: "Flex", position: "relative", background: "linear-gradient(to bottom, #787578, #000000)"}}>
-                            <div style={{ marginTop: "50px", marginLeft: "35px",display: "flex", width: "90%", marginRight: "auto"}}>
-                                <SideBar />
-                                <main style={{zIndex: 1, overflowX: "hidden", marginLeft: "40px"}}>
-                                    {/* <Navbar /> */}
-                                    {children}
-                                </main>
-                            </div>
-                        </div>
-                        </>) : (<LoadingSpinner/>)}
+                            <CanvasElement/>
+                            {/* <div style= {{display: "Flex", position: "relative", background: "linear-gradient(to bottom, #787578, #000000)"}}>
+                                <div style={{ marginTop: "50px", marginLeft: "35px",display: "flex", width: "90%", marginRight: "auto"}}>
+                                    <SideBar />
+                                    <main style={{zIndex: 1, overflowX: "hidden", marginLeft: "40px"}}>
+                                        {children}
+                                    </main>
+                                </div>
+                            </div> */}
+                        </>
+                        ) : (<LoadingSpinner/>)}
                     </Suspense>
                 </Wrapper>
             </body>
