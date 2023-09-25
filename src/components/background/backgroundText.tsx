@@ -1,18 +1,33 @@
-import React from "react";
+import { Vector3 } from "@react-three/fiber";
+import React, { Dispatch, SetStateAction } from "react";
 import styled from "styled-components";
+import * as THREE from "three"
 
 interface BackgroundTextProps {
-  setSkills: any
+  sideBarSection: string
+  cameraPosition: Vector3
+  setSideBarSection: Dispatch<SetStateAction<any>>;
+  setCameraPosition: Dispatch<SetStateAction<any>>
 }
 
-const BackgroundText: React.FC<BackgroundTextProps> = ({setSkills}) => {
+const BackgroundText: React.FC<BackgroundTextProps> = ({ sideBarSection, setSideBarSection, cameraPosition, setCameraPosition }) => {
+
+  const sectionCanvasPositions: Record<string,Vector3> = {
+    "skills" : new THREE.Vector3(-36.9,-10,-183)
+  }
+
+  const handleSideBarClick: Function = (section: string): void => {
+    setSideBarSection(section)
+    setCameraPosition(sectionCanvasPositions[section])
+  };
+
   return (
     <Wrapper>
       <Title>Ansh Tyagi</Title>
       <Description>Web Developer</Description>
       <SiteNavigation>
         <NavigationItem href="#about">About Me</NavigationItem>
-        <NavigationItem href="#skills" onClick={() => setSkills(true)}>Skills / Projects</NavigationItem>
+        <NavigationItem onClick={() => handleSideBarClick("skills")}>Skills / Projects</NavigationItem>
       </SiteNavigation>
     </Wrapper>
   );

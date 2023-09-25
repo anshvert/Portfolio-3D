@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { Dispatch, FC, SetStateAction } from 'react';
 import {
     Code,
     Flame,
@@ -27,9 +27,13 @@ import {GiRaiseZombie} from "react-icons/gi";
 import {MdPersonalInjury} from "react-icons/md";
 import { IconContext } from "react-icons"
 import "../../app/globals.css"
-interface MenuProps {}
 
-const Menu: FC<MenuProps> = ({}) => {
+interface MenuProps {
+    sideBarSection: string
+    setSideBarSection: Dispatch<SetStateAction<any>>;
+}
+
+const Menu: FC<MenuProps> = ({sideBarSection, setSideBarSection}) => {
     const { showMenuVisibility } = useMenu();
     return (
         <div

@@ -7,9 +7,9 @@ import Background from '@/components/background/background';
 import BackgroundText from '@/components/background/backgroundText';
 import styled from 'styled-components';
 import CanvasElement from '@/components/background/canvas';
-import LoadingSpinner from '@/components/loading/LoadingScreen';
-import { Loader } from '@react-three/drei';
 import Portfolio from '@/components/portfolio/Portfolio';
+import { Vector3 } from '@react-three/fiber';
+import * as THREE from "three"
 
 // export const metadata: Metadata = {
 //     title: 'Ansh',
@@ -31,7 +31,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     const [loading,setLoading] = useState<boolean>(false)
-    const [skills,setSkills] = useState<boolean>(false)
+    const [sideBarSection,setSideBarSection] = useState<string>("")
+    const [cameraPosition,setCameraPosition] = useState<Vector3>(new THREE.Vector3(0,0,0))
    
     return (
         <html lang="en">
@@ -39,11 +40,9 @@ export default function RootLayout({
                 <Wrapper>
                     <Suspense fallback={null}> 
                         <>
-                            <BackgroundText setSkills={setSkills}/>
-                            <CanvasElement/>
-                            {skills && 
-                                <Portfolio children = {children}/>
-                            }
+                            <BackgroundText sideBarSection={sideBarSection} setSideBarSection={setSideBarSection} cameraPosition={cameraPosition} setCameraPosition={setCameraPosition}/>
+                            <CanvasElement cameraPosition={cameraPosition}/>
+                            <Portfolio children = {children} sideBarSection = {sideBarSection} setSideBarSection={setSideBarSection}/>
                         </>
                     </Suspense>
                 </Wrapper>
