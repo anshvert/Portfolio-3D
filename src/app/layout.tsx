@@ -10,6 +10,7 @@ import CanvasElement from '@/components/background/canvas';
 import Portfolio from '@/components/portfolio/Portfolio';
 import { Vector3 } from '@react-three/fiber';
 import * as THREE from "three"
+import useStore from '@/slices/store';
 
 // export const metadata: Metadata = {
 //     title: 'Ansh',
@@ -30,9 +31,7 @@ export default function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
-    const [loading,setLoading] = useState<boolean>(false)
-    const [sideBarSection,setSideBarSection] = useState<string>("")
-    const [cameraPosition,setCameraPosition] = useState<Vector3>(new THREE.Vector3(0,0,0))
+    const [cameraPosition,setCameraPosition] = useState<THREE.Vector3>(new THREE.Vector3(0,0,0))
    
     return (
         <html lang="en">
@@ -40,9 +39,9 @@ export default function RootLayout({
                 <Wrapper>
                     <Suspense fallback={null}> 
                         <>
-                            <BackgroundText sideBarSection={sideBarSection} setSideBarSection={setSideBarSection} cameraPosition={cameraPosition} setCameraPosition={setCameraPosition}/>
+                            <BackgroundText cameraPosition={cameraPosition} setCameraPosition={setCameraPosition}/>
                             <CanvasElement cameraPosition={cameraPosition}/>
-                            <Portfolio children = {children} sideBarSection = {sideBarSection} setSideBarSection={setSideBarSection}/>
+                            <Portfolio children = {children}/>
                         </>
                     </Suspense>
                 </Wrapper>

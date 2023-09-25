@@ -3,9 +3,10 @@ import { Canvas, Vector3, useFrame, useThree } from "@react-three/fiber";
 import { Environment, Loader, PerspectiveCamera, PointerLockControlsProps, OrbitControls } from "@react-three/drei";
 import { House } from "@/components/background/models/house"
 import CanvasBackgroundElements from "./canvasElements";
+import * as THREE from "three";
 
 interface CanvasElementProps {
-  cameraPosition: Vector3
+  cameraPosition: THREE.Vector3
 }
 
 const CanvasElement: React.FC<CanvasElementProps> = ({cameraPosition}) => {

@@ -1,12 +1,12 @@
 import { Environment, OrbitControls, PerspectiveCamera, PointerLockControlsProps } from "@react-three/drei";
 import { House } from "@/components/background/models/house"
-import { Vector3, useFrame, useThree } from "@react-three/fiber";
+import { Camera, Vector3, useFrame, useThree } from "@react-three/fiber";
 import { useEffect } from "react";
 import * as THREE from "three";
 import gsap from "gsap";
 
 interface CanvasBackgroundElementsProps {
-    cameraPosition: Vector3
+    cameraPosition: THREE.Vector3
 }
 
 const CanvasBackgroundElements: React.FC<CanvasBackgroundElementsProps> = ({cameraPosition}) => {
@@ -18,22 +18,18 @@ const CanvasBackgroundElements: React.FC<CanvasBackgroundElementsProps> = ({came
     //     console.log(distance)
     // })
 
-    const animateCamera = (camera: any, targetPosition: any) => {
-        const animationDuration = 1; // Duration in seconds
-      
+    const animateCamera = (camera: Camera, targetPosition: THREE.Vector3) => {
+        const animationDuration = 1.5;
         gsap.to(camera.position, {
           x: targetPosition.x,
           y: targetPosition.y,
           z: targetPosition.z,
           duration: animationDuration,
-          ease: "power2.inOut", // You can use different easing functions
+          ease: "power1.inOut",
         });
-      
-        camera.lookAt(targetPosition); // Make sure the camera is looking at the target
+        camera.lookAt(targetPosition);
       };
     useEffect(() => {
-        // const targetpositionVector3 = new THREE.Vector3(cameraPosition[0],cameraPosition[1],cameraPosition[2])
-        // console.log(targetpositionVector3)
         animateCamera(camera,cameraPosition)
     },[cameraPosition])
     const { camera } = useThree()
@@ -47,7 +43,7 @@ const CanvasBackgroundElements: React.FC<CanvasBackgroundElementsProps> = ({came
         />
         {/* <PointerLockControls ref={controls}/> */}
             <OrbitControls
-                enableZoom={true}
+                enableZoom={false}
                 target={[0,-15,-100]}
                 autoRotate={false}
                 enableDamping/>

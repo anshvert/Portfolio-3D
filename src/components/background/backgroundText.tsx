@@ -2,15 +2,16 @@ import { Vector3 } from "@react-three/fiber";
 import React, { Dispatch, SetStateAction } from "react";
 import styled from "styled-components";
 import * as THREE from "three"
+import useStore from '@/slices/store';
 
 interface BackgroundTextProps {
-  sideBarSection: string
   cameraPosition: Vector3
-  setSideBarSection: Dispatch<SetStateAction<any>>;
   setCameraPosition: Dispatch<SetStateAction<any>>
 }
 
-const BackgroundText: React.FC<BackgroundTextProps> = ({ sideBarSection, setSideBarSection, cameraPosition, setCameraPosition }) => {
+const BackgroundText: React.FC<BackgroundTextProps> = ({ cameraPosition, setCameraPosition }) => {
+
+  const { setSideBarSection } = useStore()
 
   const sectionCanvasPositions: Record<string,Vector3> = {
     "skills" : new THREE.Vector3(-36.9,-10,-183)
