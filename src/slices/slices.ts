@@ -28,7 +28,7 @@ export const skillSectionSlice: StateCreator<any> = (set) => ({
 })
 
 export const perspectiveCameraSlice: StateCreator<any> = (set) => ({
-    perspectiveCamera: new THREE.Vector3(0,0,0),
+    perspectiveCamera: new THREE.Vector3(52.78,27.47,-31.9),
     setPerspectiveCamera: (vector: THREE.Vector3) => {
         set({perspectiveCamera: vector})
     }

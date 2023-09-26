@@ -14,7 +14,7 @@ export function House(props) {
   const { nodes, materials } = useGLTF('/house/house.gltf')
   return (
     <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]} scale={0.04} position={[0,-15,-100]}>
+      <group rotation={[-Math.PI / 2, 0, 0]} scale={0.04} position={[-12,-10,-80]}>
         <group position={[932.909, -34.219, 40.001]} rotation={[0, 0, -1.568]}>
           <mesh geometry={nodes.Living_Assemblies_05_453_Living_Assemblies_05_453Mat_0.geometry} material={materials.Living_Assemblies_05_453Mat} />
           <mesh geometry={nodes.Living_Assemblies_05_453_Living_Assemblies_05_453Mat_0_1.geometry} material={materials.Living_Assemblies_05_453Mat} />

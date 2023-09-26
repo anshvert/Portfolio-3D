@@ -8,19 +8,19 @@ interface PortfolioProps {
 }
 
 const Portfolio: React.FC<PortfolioProps> = ({ children }) => {
-    const { sideBarSection } = useStore()
+    const { sideBarSection, showStuff } = useStore()
     if (!sideBarSection) return <></>
     return (
         <>
             {/* <div style= {{display: "Flex", position: "relative", background: "linear-gradient(to bottom, #4E5259, #000000)"}}> */}
-                <Wrapper>
+                {showStuff && <Wrapper>
                     <div style={{ marginTop: "50px", marginLeft: "35px",display: "flex", width: "90%", marginRight: "auto", position: "absolute"}}>
                         <SideBar/>
                         <main style={{zIndex: 1, overflowX: "hidden", marginLeft: "40px"}}>
                             {children}
                         </main>
                     </div>
-                </Wrapper>
+                </Wrapper>}
             {/* </div> */}
         </>
     )

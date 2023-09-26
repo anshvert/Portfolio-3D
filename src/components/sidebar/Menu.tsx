@@ -38,7 +38,7 @@ const Menu: FC<MenuProps> = ({}) => {
         setSideBarSection("")
         setShowStuff(false)
         setSkills("")
-        setPerspectiveCamera(new THREE.Vector3(0,0,0))
+        setPerspectiveCamera(new THREE.Vector3(52.78,27.47,-31.9))
     }
 
     return (
