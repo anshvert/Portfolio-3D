@@ -4,14 +4,11 @@ import styled from "styled-components";
 import * as THREE from "three"
 import useStore from '@/slices/store';
 
-interface BackgroundTextProps {
-  cameraPosition: Vector3
-  setCameraPosition: Dispatch<SetStateAction<any>>
-}
+interface BackgroundTextProps {}
 
-const BackgroundText: React.FC<BackgroundTextProps> = ({ cameraPosition, setCameraPosition }) => {
+const BackgroundText: React.FC<BackgroundTextProps> = ({}) => {
 
-  const { setSideBarSection, setShowStuff } = useStore()
+  const { setSideBarSection, setShowStuff, setPerspectiveCamera } = useStore()
 
   const sectionCanvasPositions: Record<string,Vector3> = {
     "skills" : new THREE.Vector3(-36.9,-9,-183)
@@ -20,7 +17,7 @@ const BackgroundText: React.FC<BackgroundTextProps> = ({ cameraPosition, setCame
   const handleSideBarClick: Function = (section: string): void => {
     setShowStuff(true)
     setSideBarSection(section)
-    setCameraPosition(sectionCanvasPositions[section])
+    setPerspectiveCamera(sectionCanvasPositions[section])
   };
 
   return (

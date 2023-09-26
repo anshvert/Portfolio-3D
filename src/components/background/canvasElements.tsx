@@ -4,12 +4,13 @@ import { Camera, Vector3, useFrame, useThree } from "@react-three/fiber";
 import { useEffect } from "react";
 import * as THREE from "three";
 import gsap from "gsap";
+import useStore from '@/slices/store';
 
-interface CanvasBackgroundElementsProps {
-    cameraPosition: THREE.Vector3
-}
+interface CanvasBackgroundElementsProps {}
 
-const CanvasBackgroundElements: React.FC<CanvasBackgroundElementsProps> = ({cameraPosition}) => {
+const CanvasBackgroundElements: React.FC<CanvasBackgroundElementsProps> = ({}) => {
+
+    const {perspectiveCamera,setPerspectiveCamera} = useStore()
 
     // useFrame(() => {
     //     console.log(camera.position)
@@ -30,8 +31,8 @@ const CanvasBackgroundElements: React.FC<CanvasBackgroundElementsProps> = ({came
         camera.lookAt(targetPosition);
       };
     useEffect(() => {
-        animateCamera(camera,cameraPosition)
-    },[cameraPosition])
+        animateCamera(camera,perspectiveCamera)
+    },[perspectiveCamera])
     const { camera } = useThree()
     return (
         <mesh>

@@ -31,16 +31,14 @@ export default function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
-    const [cameraPosition,setCameraPosition] = useState<THREE.Vector3>(new THREE.Vector3(0,0,0))
-   
     return (
         <html lang="en">
             <body>
                 <Wrapper>
                     <Suspense fallback={null}> 
                         <>
-                            <BackgroundText cameraPosition={cameraPosition} setCameraPosition={setCameraPosition}/>
-                            <CanvasElement cameraPosition={cameraPosition}/>
+                            <BackgroundText/>
+                            <CanvasElement/>
                             <Portfolio children = {children}/>
                         </>
                     </Suspense>

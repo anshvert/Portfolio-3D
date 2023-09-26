@@ -5,11 +5,9 @@ import { House } from "@/components/background/models/house"
 import CanvasBackgroundElements from "./canvasElements";
 import * as THREE from "three";
 
-interface CanvasElementProps {
-  cameraPosition: THREE.Vector3
-}
+interface CanvasElementProps {}
 
-const CanvasElement: React.FC<CanvasElementProps> = ({cameraPosition}) => {
+const CanvasElement: React.FC<CanvasElementProps> = ({}) => {
     const controls: any = useRef(null);
 
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -41,7 +39,7 @@ const CanvasElement: React.FC<CanvasElementProps> = ({cameraPosition}) => {
         onCreated={({ gl }) => {
           window.addEventListener("keydown", handleKeyDown);
         }}>
-        <CanvasBackgroundElements cameraPosition={cameraPosition}/>
+        <CanvasBackgroundElements/>
       </Canvas>
       <Loader />
     </>

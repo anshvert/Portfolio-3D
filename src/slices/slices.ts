@@ -1,4 +1,5 @@
 import { StateCreator } from "zustand";
+import * as THREE from "three"
 
 interface infoSlice {
     showStuff: boolean
@@ -8,7 +9,7 @@ interface infoSlice {
 export const infoSlice: StateCreator<infoSlice> = (set) => ({
     showStuff: false,
     setShowStuff: (show: boolean) => {
-        set({ showStuff: true})
+        set({ showStuff: show})
     }
 })
 
@@ -23,5 +24,12 @@ export const skillSectionSlice: StateCreator<any> = (set) => ({
     skills: "",
     setSkills: (skill: string) => {
         set({skills: skill})
+    }
+})
+
+export const perspectiveCameraSlice: StateCreator<any> = (set) => ({
+    perspectiveCamera: new THREE.Vector3(0,0,0),
+    setPerspectiveCamera: (vector: THREE.Vector3) => {
+        set({perspectiveCamera: vector})
     }
 })

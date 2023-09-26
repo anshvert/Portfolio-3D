@@ -18,7 +18,6 @@ import {
     Youtube,
 } from 'lucide-react';
 import List from '../ui/List';
-import { useMenu } from '../Provider';
 import {SiHive} from "react-icons/si";
 import {RiCodeSSlashLine, RiMovie2Fill} from "react-icons/ri";
 import {BsDiscord} from "react-icons/bs";
@@ -27,12 +26,21 @@ import {GiRaiseZombie} from "react-icons/gi";
 import {MdPersonalInjury} from "react-icons/md";
 import { IconContext } from "react-icons"
 import useStore from '@/slices/store';
+import * as THREE from "three"
 import "../../app/globals.css"
 
 interface MenuProps {}
 
 const Menu: FC<MenuProps> = ({}) => {
-    const {sideBarSection, setSkills} = useStore()
+    const {sideBarSection,setSideBarSection, setSkills, setShowStuff, setPerspectiveCamera} = useStore()
+
+    const returnHome = () => {
+        setSideBarSection("")
+        setShowStuff(false)
+        setSkills("")
+        setPerspectiveCamera(new THREE.Vector3(0,0,0))
+    }
+
     return (
         <>
             <div
@@ -43,8 +51,8 @@ const Menu: FC<MenuProps> = ({}) => {
                 {/* List 1 */}
                 <div className='list-hover'>
                     <List link="/" effect="slideUp">
-                        <Home />
-                        <span className='large-text'>Home</span>
+                        <Home/>
+                        <span className='large-text' onClick={returnHome}>Home</span>
                     </List>
                 </div>
                 {/*<List link="/" effect="slideUp">*/}
@@ -188,9 +196,9 @@ const Menu: FC<MenuProps> = ({}) => {
                             link=""
                             effect="slideUp">
                             <IconContext.Provider value={{ color: '#CCCCCC', className: 'contactIcon', size: '25' }}>
-                                <SiHive onClick={() => setSkills("FrontEnd")}/>
+                                <SiHive/>
                             </IconContext.Provider>
-                            <span className="large-text">FrontEnd</span>
+                            <span className="large-text" onClick={() => setSkills("FrontEnd")}>FrontEnd</span>
                         </List>
                     </div>
                     <div className='list-hover'>
@@ -201,62 +209,62 @@ const Menu: FC<MenuProps> = ({}) => {
                             <IconContext.Provider value={{ color: '#CCCCCC', className: 'contactIcon', size: '25' }}>
                             <RiCodeSSlashLine />
                             </IconContext.Provider>
-                            <span className="large-text">BackEnd</span>
+                            <span className="large-text" onClick={() => setSkills("BackEnd")}>BackEnd</span>
                         </List>
                     </div>
                     <div className='list-hover'>
                         <List
                             target="_blank"
-                            link="https://github.com/anshvert/Portfolio"
+                            link=""
                             effect="slideUp">
                             <IconContext.Provider value={{ color: '#CCCCCC', className: 'contactIcon', size: '25' }}>
-                            <MdPersonalInjury />
+                                <MdPersonalInjury />
                             </IconContext.Provider>
-                            <span className='large-text'>Database</span>
+                            <span className='large-text' onClick={() => setSkills("Database")}>Database</span>
                         </List>
                     </div>
                     <div className='list-hover'>
                         <List
                             target="_blank"
-                            link="https://github.com/anshvert/Discode"
+                            link=""
                             effect="slideUp">
                             <IconContext.Provider value={{ color: '#CCCCCC', className: 'contactIcon', size: '25' }}>
                             <BsDiscord />
                             </IconContext.Provider>
-                            <span className='large-text'>Devops</span>
+                            <span className='large-text' onClick={() => setSkills("Devops")}>Devops</span>
                         </List>
                     </div>
                     <div className='list-hover'>
                         <List
                             target="_blank"
-                            link="https://github.com/anshvert/App-Radiant"
+                            link=""
                             effect="slideUp">
                             <IconContext.Provider value={{ color: '#CCCCCC', className: 'contactIcon', size: '25' }}>
-                            <FaRadiation />
+                                <FaRadiation />
                             </IconContext.Provider>
-                            <span className='large-text'>3D</span>
+                            <span className='large-text' onClick={() => setSkills("3D")}>3D</span>
                         </List>
                     </div>
                     <div className='list-hover'>
                         <List
                             target="_blank"
-                            link="https://github.com/anshvert/Mender"
+                            link=""
                             effect="slideUp">
                             <IconContext.Provider value={{ color: '#CCCCCC', className: 'contactIcon', size: '25' }}>
-                            <RiMovie2Fill />
+                                <RiMovie2Fill />
                             </IconContext.Provider>
-                            <span className='large-text'>Web3</span>
+                            <span className='large-text' onClick={() => setSkills("Web3")}>Web3</span>
                         </List>
                     </div>
                     <div className='list-hover'>
                         <List
                             target="_blank"
-                            link="https://github.com/anshvert/ZombieFight"
+                            link=""
                             effect="slideUp">
                             <IconContext.Provider value={{ color: '#CCCCCC', className: 'contactIcon', size: '25' }}>
-                            <GiRaiseZombie />
+                                <GiRaiseZombie />
                             </IconContext.Provider>
-                            <span className='large-text'>Others</span>
+                            <span className='large-text' onClick={() => setSkills("Others")}>Others</span>
                         </List>
                     </div>
                 </>}
