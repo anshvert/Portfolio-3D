@@ -15,7 +15,7 @@ import {
 } from '@/components/utils/Data';
 import "../utils/css/styles.css"
 import React, { useEffect, useState } from 'react';
-import SideBar from '@/components/Sidebar';
+import useStore from '@/slices/store';
 
 interface skillSection {
     id: number
@@ -24,8 +24,13 @@ interface skillSection {
 }
 
 export default function Home() {
-    const sections: skillSection[] = [
-        { id: 0, title: "Frontend", data: frontendCard },
+
+    const { skills,showStuff } = useStore()
+    console.log(skills,showStuff)
+    const [section,setSection] = useState<any>({})
+
+    let sections: skillSection[] = [
+        { id: 0, title: "FrontEnd", data: frontendCard },
         { id: 1, title: "Backend", data: backendCard },
         { id: 2, title: "Database", data: databaseCard },
         { id: 3, title: "DevOps", data: devopsCards },
@@ -33,23 +38,24 @@ export default function Home() {
         { id: 5, title: "3D", data: threeDCard },
         { id: 6, title: "Others", data: otherCards }
     ];
+    useEffect(() => {
+        sections.filter((skill: skillSection) => skill.title === skills)
+        sections.length ? setSection(sections[0]) : {}
+    },[skills,showStuff])
+    console.log(section)
     return (
         <>  
-            <div style={{position: "absolute", zIndex: 1}}>
+            {showStuff && section.id != null && <div style={{position: "absolute", zIndex: 1}}>
                 {/* <Cover /> */}
-                <div className="flex flex-col gap-10 lg:px-10 bg-black" style={{borderRadius: '50px', marginTop: "10px"}}>
+                <div className="flex flex-col gap-10 lg:px-10 bg-grey" style={{borderRadius: '50px', marginTop: "10px", marginRight: "60px"}}>
                     {/* <ProjectCardSection title="Projects" data={projectCard} /> */}
-                    {sections.map((section: skillSection, index: number) => (
-                        <React.Fragment key={index}>
-                            <CardSection
-                                id={section.id}
-                                title={section.title}
-                                data={section.data}
-                            />
-                        </React.Fragment>
-                    ))}
+                    <CardSection key={section.id}
+                        id={section.id}
+                        title={section.title}
+                        data={section.data}
+                    />
                 </div>
-            </div>
+            </div> }
         </>
     );
 }

@@ -11,21 +11,24 @@ interface BackgroundTextProps {
 
 const BackgroundText: React.FC<BackgroundTextProps> = ({ cameraPosition, setCameraPosition }) => {
 
-  const { setSideBarSection } = useStore()
+  const { setSideBarSection, setShowStuff } = useStore()
 
   const sectionCanvasPositions: Record<string,Vector3> = {
-    "skills" : new THREE.Vector3(-36.9,-10,-183)
+    "skills" : new THREE.Vector3(-36.9,-9,-183)
   }
 
   const handleSideBarClick: Function = (section: string): void => {
+    setShowStuff(true)
     setSideBarSection(section)
     setCameraPosition(sectionCanvasPositions[section])
   };
 
   return (
     <Wrapper>
-      <Title>Ansh Tyagi</Title>
-      <Description>Web Developer</Description>
+      <div>
+        <Title>Ansh Tyagi</Title>
+        <Description>Web Developer</Description>
+      </div>
       <SiteNavigation>
         <NavigationItem href="#about">About Me</NavigationItem>
         <NavigationItem onClick={() => handleSideBarClick("skills")}>Skills / Projects</NavigationItem>
@@ -43,6 +46,7 @@ const Wrapper = styled.div`
   z-index: 1; /* Adjust the z-index to ensure text is above the canvas */
   color: white;
   font-size: 24px;
+  display: flex;
 `;
 
 const Title = styled.h1`
@@ -66,9 +70,10 @@ const SiteNavigation = styled.nav`
   max-width: 300px;
   color: rgba(255, 255, 255, 0.7);
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 25px;
-  margin: 20px auto;
+  margin: 40px auto;
+  display: flex;
 `;
 
 const NavigationItem = styled.a`
@@ -78,8 +83,5 @@ const NavigationItem = styled.a`
   font-size: 25px;
   margin: 10px 0;
   cursor: pointer;
-
-  &:hover {
-    font-size: 30px
-  }
+  &:hover {}
 `;

@@ -32,7 +32,7 @@ import "../../app/globals.css"
 interface MenuProps {}
 
 const Menu: FC<MenuProps> = ({}) => {
-    const {sideBarSection} = useStore()
+    const {sideBarSection, setSkills} = useStore()
     return (
         <>
             <div
@@ -184,11 +184,11 @@ const Menu: FC<MenuProps> = ({}) => {
                 <div className="mt-5">Skills</div>
                     <div className='list-hover'>
                         <List
-                            target="_blank"
-                            link="https://github.com/anshvert/PostHive"
+                            target="_blank" 
+                            link=""
                             effect="slideUp">
                             <IconContext.Provider value={{ color: '#CCCCCC', className: 'contactIcon', size: '25' }}>
-                                <SiHive />
+                                <SiHive onClick={() => setSkills("FrontEnd")}/>
                             </IconContext.Provider>
                             <span className="large-text">FrontEnd</span>
                         </List>
@@ -196,7 +196,7 @@ const Menu: FC<MenuProps> = ({}) => {
                     <div className='list-hover'>
                         <List
                             target="_blank" 
-                            link="https://github.com/anshvert/CodeNub"
+                            link=""
                             effect="slideUp">
                             <IconContext.Provider value={{ color: '#CCCCCC', className: 'contactIcon', size: '25' }}>
                             <RiCodeSSlashLine />

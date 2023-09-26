@@ -1,9 +1,27 @@
 import { StateCreator } from "zustand";
 
-const sideBarSectionSlice: StateCreator<any> = (set) => ({
+interface infoSlice {
+    showStuff: boolean
+    setShowStuff: Function
+}
+
+export const infoSlice: StateCreator<infoSlice> = (set) => ({
+    showStuff: false,
+    setShowStuff: (show: boolean) => {
+        set({ showStuff: true})
+    }
+})
+
+export const sideBarSectionSlice: StateCreator<any> = (set) => ({
     sideBarSection: "",
     setSideBarSection: (section: string) => {
         set({sideBarSection: section})
     }
 })
-export default sideBarSectionSlice
+
+export const skillSectionSlice: StateCreator<any> = (set) => ({
+    skills: "",
+    setSkills: (skill: string) => {
+        set({skills: skill})
+    }
+})

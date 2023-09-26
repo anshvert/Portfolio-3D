@@ -29,8 +29,8 @@ export default Portfolio
 
 const Wrapper = styled.div`
   position: absolute;
-  top: 40px;
-  left: 50px;
+  top: 100px;
+  left: 100px;
   z-index: 1; /* Adjust the z-index to ensure text is above the canvas */
   color: white;
   font-size: 20px;

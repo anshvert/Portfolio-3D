@@ -44,8 +44,8 @@ const CardSection: FC<CardSectionProps> = ({ id, title, version, data }) => {
     return (
         <>
             <div className="text-xl font-bold text-highlight">{title}</div> 
-                <div className="wrapper">
-                        <div className="tabs-box" key={title}>
+                <div className="bg-grey wrapper">
+                        <div className="bg-grey tabs-box" key={title}>
                             {data.map((card: ISectionCardData, idx: number) => (
                                 <div className='tab' key={idx}>
                                     <div className="icon"><i id="left">{"<<"}</i></div>
