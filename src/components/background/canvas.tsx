@@ -39,9 +39,9 @@ const CanvasElement: React.FC<CanvasElementProps> = ({}) => {
     <>
       <Canvas
         className="canvas">
-         <Suspense fallback={null}>{loaded && <CanvasBackgroundElements />}</Suspense>
+         <Suspense fallback={null}>{<CanvasBackgroundElements />}</Suspense>
       </Canvas>
-      <LoadingScreen loaded={loaded} setLoaded={() => setLoaded(true)}  />
+      <LoadingScreen loaded={loaded} setLoaded={setLoaded}/>
     </>
   );
 };
