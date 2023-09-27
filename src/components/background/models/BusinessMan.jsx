@@ -7,14 +7,24 @@ Source: https://sketchfab.com/3d-models/business-man-low-polygon-game-character-
 Title: Business Man - Low Polygon game character
 */
 
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
+import useStore from '@/slices/store';
+import * as THREE from "three"
 
 export function BusinessMan(props) {
+  const { actionSequence } = useStore()
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('/businessMan/scene.gltf')
-  const { actions,mixer } = useAnimations(animations, group)
-  console.log(actions['Rig|idle'])
+  const { actions, mixer } = useAnimations(animations, group)
+  console.log(actions)
+  useEffect(() => {
+    actionSequence.forEach((action) => {
+      const currentAction = actions[action]
+      currentAction.setLoop(THREE.LoopOnce).play()
+    })
+    actions[actionSequence[actionSequence.length-1]].play()
+  },[actionSequence])
   return (
     <group ref={group} {...props} dispose={null} position={[10,-8,-50]}>
       <group name="Sketchfab_Scene">

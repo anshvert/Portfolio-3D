@@ -1,10 +1,9 @@
 import { StateCreator } from "zustand";
 import * as THREE from "three"
-import { boolean } from "zod";
 
 interface infoSlice {
     showStuff: boolean
-    setShowStuff: Function
+    setShowStuff: (showStuff: boolean) => void
 }
 
 export const infoSlice: StateCreator<infoSlice> = (set) => ({
@@ -39,5 +38,12 @@ export const loadedInitialScreen: StateCreator<any> = (set) => ({
     loaded: false,
     setLoaded: (loadedState: boolean) => {
         set({ loaded: loadedState })
+    }
+})
+
+export const frontManAnimation: StateCreator<any> = (set) => ({
+    actionSequence: ["Rig|sitting_start","Rig|sitting_end"],
+    setActionSequence: (actionSeq: string[]) => {
+        set({ actionSequence: actionSeq})
     }
 })

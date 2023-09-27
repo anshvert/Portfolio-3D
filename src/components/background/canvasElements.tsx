@@ -2,6 +2,7 @@ import { Environment, OrbitControls, PerspectiveCamera, PointerLockControlsProps
 import { House } from "@/components/background/models/house"
 import { LamboCountach } from "@/components/background/models/lamboCountach"
 import { BusinessMan } from "@/components/background/models/BusinessMan"
+import { MChair } from "@/components/background/models/MChair"
 import { Camera, Vector3, useFrame, useThree } from "@react-three/fiber";
 import { useEffect } from "react";
 import * as THREE from "three";
@@ -53,8 +54,7 @@ const CanvasBackgroundElements: React.FC<CanvasBackgroundElementsProps> = ({}) =
         />
         {/* <PointerLockControls ref={controls}/> */}
             <OrbitControls
-                zoom0={2}
-                enableZoom={true}
+                enableZoom={false}
                 enablePan={false}
                 target={[10,-4,-50]}
                 autoRotate={false}
@@ -64,6 +64,7 @@ const CanvasBackgroundElements: React.FC<CanvasBackgroundElementsProps> = ({}) =
         <House/>
         {/* <LamboCountach/> */}
         <BusinessMan/>
+        <MChair/>
         </mesh>
     )
 }
