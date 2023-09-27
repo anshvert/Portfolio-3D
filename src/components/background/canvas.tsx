@@ -1,14 +1,17 @@
-import React, { useRef } from "react";
+import React, { Suspense, useRef, useState } from "react";
 import { Canvas, Vector3, useFrame, useThree } from "@react-three/fiber";
 import { Environment, Loader, PerspectiveCamera, PointerLockControlsProps, OrbitControls } from "@react-three/drei";
 import { House } from "@/components/background/models/house"
 import CanvasBackgroundElements from "./canvasElements";
 import * as THREE from "three";
+import {LoadingScreen} from "../loading/LoadingScreen";
+import useStore from '@/slices/store';
 
 interface CanvasElementProps {}
 
 const CanvasElement: React.FC<CanvasElementProps> = ({}) => {
     const controls: any = useRef(null);
+    const { loaded , setLoaded } = useStore()
 
     const handleKeyDown = (event: KeyboardEvent) => {
         switch (event.key) {
@@ -35,13 +38,10 @@ const CanvasElement: React.FC<CanvasElementProps> = ({}) => {
   return (
     <>
       <Canvas
-        className="canvas"
-        onCreated={({ gl }) => {
-          window.addEventListener("keydown", handleKeyDown);
-        }}>
-        <CanvasBackgroundElements/>
+        className="canvas">
+         <Suspense fallback={null}>{loaded && <CanvasBackgroundElements />}</Suspense>
       </Canvas>
-      <Loader />
+      <LoadingScreen loaded={loaded} setLoaded={() => setLoaded(true)}  />
     </>
   );
 };

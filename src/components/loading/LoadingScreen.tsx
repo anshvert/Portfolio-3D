@@ -1,14 +1,27 @@
-import { Canvas } from "@react-three/fiber";
-import React from "react"
-import Boxx from '@/components/background/elements/box';
+import { useProgress } from "@react-three/drei";
 
-const LoadingSpinner: React.FC<{}> = ({}) => {
-    return (
-        <Canvas className="canvas">
-            <mesh>
-                <Boxx/>
-            </mesh>
-        </Canvas>
-    );
+export const LoadingScreen = ({ loaded, setLoaded }) => {
+  const { progress } = useProgress();
+  return (
+    <div className={`loadingScreen ${loaded ? "loadingScreen--started" : ""}`}>
+      <div className="loadingScreen__progress">
+        <div
+          className="loadingScreen__progress__value"
+          style={{
+            width: `${progress}%`,
+          }}
+        />
+      </div>
+      <div className="loadingScreen__board">
+        <h1 className="loadingScreen__title">Loading ... </h1>
+        <button
+          className="loadingScreen__button"
+          disabled={progress < 100}
+          onClick={setLoaded}
+        >
+          Enter
+        </button>
+      </div>
+    </div>
+  );
 };
-export default LoadingSpinner

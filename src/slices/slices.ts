@@ -1,5 +1,6 @@
 import { StateCreator } from "zustand";
 import * as THREE from "three"
+import { boolean } from "zod";
 
 interface infoSlice {
     showStuff: boolean
@@ -31,5 +32,12 @@ export const perspectiveCameraSlice: StateCreator<any> = (set) => ({
     perspectiveCamera: new THREE.Vector3(52.78,27.47,-31.9),
     setPerspectiveCamera: (vector: THREE.Vector3) => {
         set({perspectiveCamera: vector})
+    }
+})
+
+export const loadedInitialScreen: StateCreator<any> = (set) => ({
+    loaded: false,
+    setLoaded: (loadedState: boolean) => {
+        set({ loaded: loadedState })
     }
 })

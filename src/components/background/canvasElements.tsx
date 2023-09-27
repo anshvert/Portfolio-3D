@@ -14,12 +14,12 @@ const CanvasBackgroundElements: React.FC<CanvasBackgroundElementsProps> = ({}) =
 
     const {perspectiveCamera,setPerspectiveCamera,showStuff,setShowStuff,sideBarSection} = useStore()
 
-    useFrame(() => {
-        console.log(camera.position)
-        // console.log(cameraPosition)
-        // const distance = camera.position.distanceTo(cameraPosition);
-        // console.log(distance)
-    })
+    // useFrame(() => {
+    //     console.log(camera.position)
+    //     // console.log(cameraPosition)
+    //     // const distance = camera.position.distanceTo(cameraPosition);
+    //     // console.log(distance)
+    // })
 
     const animationCompleted = (val: boolean) => {
         setShowStuff(val)

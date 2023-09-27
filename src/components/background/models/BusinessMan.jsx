@@ -13,8 +13,8 @@ import { useGLTF, useAnimations } from '@react-three/drei'
 export function BusinessMan(props) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('/businessMan/scene.gltf')
-  const { actions } = useAnimations(animations, group)
-  console.log(actions)
+  const { actions,mixer } = useAnimations(animations, group)
+  console.log(actions['Rig|idle'])
   return (
     <group ref={group} {...props} dispose={null} position={[10,-8,-50]}>
       <group name="Sketchfab_Scene">
