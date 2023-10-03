@@ -1,3 +1,8 @@
+## Personal Portfolio
+
+![image](https://github.com/anshvert/Portfolio/assets/53685410/82fe5af8-bd1c-49d6-af9d-c6f999c01940)
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
